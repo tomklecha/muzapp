@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_more"
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        android:title="@string/menu_chat_title"
+        app:showAsAction="always">
+
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/menu_insert_message"
+                    android:title="@string/menu_random_message" />
+                <item
+                    android:id="@+id/menu_populate_db"
+                    android:title="@string/menu_populate_chat" />
+                <item
+                    android:id="@+id/menu_delete_db"
+                    android:title="@string/menu_delete_db" />
+
+            </group>
+        </menu>
+
+    </item>
+</menu>

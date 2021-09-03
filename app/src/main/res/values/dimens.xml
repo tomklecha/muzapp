@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="material_0dp">0dp</dimen>
+    <dimen name="material_1dp">1dp</dimen>
+    <dimen name="material_4dp">4dp</dimen>
+    <dimen name="material_8dp">8dp</dimen>
+    <dimen name="material_12dp">12dp</dimen>
+    <dimen name="material_16dp">16dp</dimen>
+    <dimen name="material_40dp">40dp</dimen>
+    <dimen name="material_52dp">52dp</dimen>
+    <dimen name="material_200dp">200dp</dimen>
+
+
+    <dimen name="icon_size">@dimen/material_52dp</dimen>
+    <dimen name="chat_message_width">@dimen/material_200dp</dimen>
+</resources>

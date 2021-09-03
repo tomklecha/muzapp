@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dateVisibility"
+            type="boolean" />
+
+        <variable
+            name="chatItem"
+            type="com.tkdev.muzapp.domain.models.ChatItemDomain" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="@dimen/material_4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/date_message"
+            setDate="@{chatItem.messageTimestamp}"
+            setVisibility="@{dateVisibility}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Sample date" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/MuzApp.CardView.MessageSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_max="@dimen/material_200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_message">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/message_from_user"
+                    style="@style/MuzApp.CardView.MessageSend.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{chatItem.chatMessage}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum " />
+
+                <ImageView
+                    android:src="@drawable/ic_baseline_check_24"
+                    android:layout_width="@dimen/material_16dp"
+                    android:layout_height="@dimen/material_16dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_weight="0" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

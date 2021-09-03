@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipient"
+            type="com.tkdev.muzapp.domain.models.UserDomain" />
+        <variable
+            name="muzViewModel"
+            type="com.tkdev.muzapp.viewmodels.MuzViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="@dimen/material_0dp"
+            android:layout_height="@dimen/material_52dp"
+            android:elevation="@dimen/material_1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/menu_chat"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24">
+
+            <ImageView
+                android:layout_width="@dimen/material_40dp"
+                android:layout_height="@dimen/material_40dp"
+                setProfilePicture="@{recipient.userId}"
+                android:contentDescription="@string/chat_image_description"
+                android:src="@drawable/gradient_pink_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/material_40dp"
+                android:gravity="center"
+                android:paddingStart="@dimen/material_4dp"
+                android:paddingEnd="@dimen/material_4dp"
+                android:text="@{recipient.userName}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="UserName" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_recycler_view"
+            android:layout_width="@dimen/material_0dp"
+            android:layout_height="@dimen/material_0dp"
+            android:paddingStart="@dimen/material_16dp"
+            android:paddingEnd="@dimen/material_16dp"
+            android:layout_marginBottom="@dimen/material_4dp"
+            app:layout_constraintBottom_toTopOf="@id/chat_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/chat_input_layout"
+            style="@style/MuzApp.TextInputLayout"
+            android:layout_width="@dimen/material_0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/material_16dp"
+            android:hint="@string/chat_hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/chat_send_button"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/chat_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/chat_send_button"
+            style="@style/MuzApp.SendButton"
+            android:layout_margin="@dimen/material_16dp"
+            android:layout_marginEnd="16dp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="@+id/chat_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chat_input_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

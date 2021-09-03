@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dateVisibility"
+            type="boolean" />
+        <variable
+            name="chatItem"
+            type="com.tkdev.muzapp.domain.models.ChatItemDomain" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="@dimen/material_4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            setVisibility="@{dateVisibility}"
+            setDate = "@{chatItem.messageTimestamp}"
+            android:id="@+id/date_message"
+            android:gravity="center"
+            tools:text="Sample date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/MuzApp.CardView.MessageReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_max="@dimen/material_200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_message">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/message_from_user"
+                style="@style/MuzApp.CardView.MessageReceived.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{chatItem.chatMessage}"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum " />
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

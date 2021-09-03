@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MuzApp</string>
+    <string name="chat_hint">It\'s a muzmatch</string>
+    <string name="menu_chat_title">Chat Menu</string>
+    <string name="chat_image_description">Picture of person, that current user text with</string>
+    <string name="menu_populate_chat">Populate chat from mockup</string>
+    <string name="menu_random_message">Insert random message</string>
+    <string name="action_navigation_back">Navigation back action</string>
+    <string name="menu_delete_db">Clear all chat</string>
+</resources>
