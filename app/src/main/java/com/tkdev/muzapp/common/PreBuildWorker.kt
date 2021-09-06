@@ -42,7 +42,8 @@ class PreBuildWorker(private val context: Context, params: WorkerParameters) :
                             itemAsset.chatId,
                             itemAsset.sendByUserId,
                             itemAsset.messageTimestamp,
-                            itemAsset.chatMessage
+                            itemAsset.chatMessage,
+                            itemAsset.wasItRead
                         )
                     })
 

@@ -30,7 +30,8 @@ class ChatRepositoryImpl @Inject constructor(
                 chatId,
                 currentUserId,
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern(MockMessages.DATE_FORMAT)),
-                message
+                message,
+                false
             )
         )
     }
@@ -60,7 +61,8 @@ class ChatRepositoryImpl @Inject constructor(
                 chatId,
                 secondUserId,
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern(MockMessages.DATE_FORMAT)),
-                "Random message generated at $timeMessageGeneration"
+                "Random message generated at $timeMessageGeneration",
+                false
             )
         )
     }
