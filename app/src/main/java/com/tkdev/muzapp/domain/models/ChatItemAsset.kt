@@ -7,5 +7,7 @@ data class ChatItemAsset(
     @SerializedName("chat_id") val chatId: String,
     @SerializedName("send_by") val sendByUserId: String,
     @SerializedName("timestamp") val messageTimestamp: String,
-    @SerializedName("message") val chatMessage: String
+    @SerializedName("message") val chatMessage: String,
+    @SerializedName("was_it_read") val wasItRead: Boolean
+
 )

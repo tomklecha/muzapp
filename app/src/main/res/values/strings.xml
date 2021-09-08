@@ -7,4 +7,9 @@
     <string name="menu_random_message">Insert random message</string>
     <string name="action_navigation_back">Navigation back action</string>
     <string name="menu_delete_db">Clear all chat</string>
+    <string name="message_random_generated">"Random message generated at %1$s"</string>
+    <string name="message_prepopulate_data">Data from mockup generated successfully</string>
+    <string name="message_generated_success">New message generated successfully</string>
+    <string name="message_data_cleared">Data cleared successfully</string>
+    <string name="message_send_fail">Something went wrong while sending message</string>
 </resources>

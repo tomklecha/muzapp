@@ -10,5 +10,6 @@ data class ChatItemDomain(
     @ColumnInfo(name = "chat_id") val chatId: String,
     @ColumnInfo(name = "send_by") val sendByUserId: String,
     @ColumnInfo(name = "timestamp") val messageTimestamp: String,
-    @ColumnInfo(name = "message") val chatMessage: String
+    @ColumnInfo(name = "message") val chatMessage: String,
+    @ColumnInfo(name = "was_it_read") val wasItRead : Boolean
 )

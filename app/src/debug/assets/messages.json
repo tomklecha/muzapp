@@ -4,48 +4,55 @@
     "chat_id": "chat_id",
     "send_by": "second_user_id",
     "timestamp": "30/08/21 10:00:50",
-    "message": "Wowsa sounds fun! !"
+    "message": "Wowsa sounds fun! !",
+    "was_it_read": true
   },
   {
     "message_id": "message_second_id",
     "chat_id": "chat_id",
     "send_by": "second_user_id",
     "timestamp": "30/08/21 11:59:00",
-    "message": "Yeah, for sure that works. What time do you think?"
+    "message": "Yeah, for sure that works. What time do you think?",
+    "was_it_read": true
   },
   {
     "message_id": "message_third_id",
     "chat_id": "chat_id",
     "send_by": "current_user_id",
     "timestamp": "01/09/21 11:59:15",
-    "message": "Does 7pm work for you? I've got to pick up my little brother first from a party"
+    "message": "Does 7pm work for you? I've got to pick up my little brother first from a party",
+    "was_it_read": true
   },
   {
     "message_id": "message_fourth_id",
     "chat_id": "chat_id",
     "send_by": "current_user_id",
     "timestamp": "01/09/21 12:00:00",
-    "message": "What are you up to today?"
+    "message": "What are you up to today?",
+    "was_it_read": true
   },
   {
     "message_id": "message_fifth_id",
     "chat_id": "chat_id",
     "send_by": "second_user_id",
     "timestamp": "01/09/21 12:01:00",
-    "message": "Nothing much"
+    "message": "Nothing much",
+    "was_it_read": true
   },
   {
     "message_id": "message_sixth_id",
     "chat_id": "chat_id",
     "send_by": "second_user_id",
     "timestamp": "01/09/21 12:02:00",
-    "message": "Actually just about to go to the shopping, got any recommendations for a good shoe shop? I'm a fashion disaster"
+    "message": "Actually just about to go to the shopping, got any recommendations for a good shoe shop? I'm a fashion disaster",
+    "was_it_read": true
   },
   {
     "message_id": "message_seventh_id",
     "chat_id": "chat_id",
     "send_by": "second_user_id",
     "timestamp": "01/09/21 13:03:00",
-    "message": "The last hour went on for hours"
+    "message": "The last hour went on for hours",
+    "was_it_read": true
   }
 ]
