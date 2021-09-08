@@ -56,7 +56,7 @@
                     tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum " />
 
                 <ImageView
-                    android:src="@drawable/ic_baseline_check_24"
+                    wasItRead="@{chatItem.wasItRead}"
                     android:layout_width="@dimen/material_16dp"
                     android:layout_height="@dimen/material_16dp"
                     android:layout_gravity="end|bottom"

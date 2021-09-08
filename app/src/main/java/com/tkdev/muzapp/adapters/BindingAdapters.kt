@@ -19,7 +19,7 @@ fun setVisibility(view: View, flag: Boolean) {
 }
 
 @BindingAdapter("setDate")
-fun setDate(view: TextView, timestamp: String){
+fun setDate(view: TextView, timestamp: String) {
     val dateFormat = DateTimeFormatter.ofPattern(MockMessages.DATE_FORMAT)
     val highlightDateTime = DateTimeFormatter.ofPattern(MockMessages.SHORT_DATE)
     val currentDate = LocalDateTime.parse(timestamp, dateFormat)
@@ -27,8 +27,18 @@ fun setDate(view: TextView, timestamp: String){
 }
 
 @BindingAdapter("setProfilePicture")
-fun setProfilePicture(image: ImageView, userId: String?){
+fun setProfilePicture(image: ImageView, userId: String?) {
     // here would be mapping the picture based on userId
     val glide = Glide.with(image.context)
     glide.load(R.mipmap.ic_launcher_round).into(image)
+}
+
+@BindingAdapter("wasItRead")
+fun wasMessageRead(image: ImageView, wasItRead: Boolean) {
+    // here would be mapping the picture based on userId
+    val glide = Glide.with(image.context)
+    when (wasItRead) {
+        true -> glide.load(R.drawable.ic_baseline_check_24).into(image)
+        false -> glide.load(R.drawable.ic_baseline_schedule_24).into(image)
+    }
 }

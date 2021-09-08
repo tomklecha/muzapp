@@ -18,4 +18,7 @@ interface ChatDao {
 
     @Query("DELETE FROM table_chat")
     suspend fun deleteAllMessages()
+
+    @Query("UPDATE table_chat SET was_it_read = 1 WHERE message_id IS :chatMessageId")
+    fun setMessageRead(chatMessageId: String)
 }

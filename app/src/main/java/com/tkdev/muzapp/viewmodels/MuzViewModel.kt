@@ -1,8 +1,11 @@
 package com.tkdev.muzapp.viewmodels
 
 import androidx.lifecycle.*
+import com.tkdev.muzapp.R
 import com.tkdev.muzapp.common.CoroutineContextProvider
+import com.tkdev.muzapp.common.Response
 import com.tkdev.muzapp.common.SingleEvent
+import com.tkdev.muzapp.common.StringWrapper
 import com.tkdev.muzapp.domain.models.ChatItemDomain
 import com.tkdev.muzapp.domain.models.UserDomain
 import com.tkdev.muzapp.repository.ChatRepository
@@ -13,7 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MuzViewModel @Inject constructor(
     private val coroutineContextProvider: CoroutineContextProvider,
-    private val chatRepository: ChatRepository
+    private val chatRepository: ChatRepository,
+    private val stringWrapper: StringWrapper
 ) : ViewModel() {
 
     val currentUserDomain: LiveData<UserDomain> = chatRepository.fetchCurrentUser().asLiveData()
@@ -29,10 +33,17 @@ class MuzViewModel @Inject constructor(
 
     fun sendChatMessage(message: String, chatId: String) {
         viewModelScope.launch(coroutineContextProvider.Io) {
-            chatRepository.sendMessageToUser(
-                message, chatId
-            )
             _editTextValue.postValue(SingleEvent(""))
+            when (val result = chatRepository.sendMessageToUser(
+                message, chatId
+            )) {
+                is Response.SUCCESS -> {
+                    chatRepository.awaitResponse(result.messageId)
+                }
+                else -> {
+                    _snackbarMessage.postValue(SingleEvent(stringWrapper.getStringMessage(R.string.message_send_fail)))
+                }
+            }
         }
     }
 
@@ -45,14 +56,14 @@ class MuzViewModel @Inject constructor(
     fun prepopulateData() {
         viewModelScope.launch(coroutineContextProvider.Io) {
             chatRepository.prepopulateData()
-            _snackbarMessage.postValue(SingleEvent("Data from mockup generated successfully"))
+            _snackbarMessage.postValue(SingleEvent(stringWrapper.getStringMessage(R.string.message_prepopulate_data)))
         }
     }
 
     fun insertMockMessage(chatId: String) {
         viewModelScope.launch(coroutineContextProvider.Io) {
             chatRepository.sendMessageAsRecipient(chatId)
-            _snackbarMessage.postValue(SingleEvent("New message generated successfully"))
+            _snackbarMessage.postValue(SingleEvent(stringWrapper.getStringMessage(R.string.message_generated_success)))
         }
     }
 
@@ -63,7 +74,7 @@ class MuzViewModel @Inject constructor(
     fun clearChat() {
         viewModelScope.launch(coroutineContextProvider.Io) {
             chatRepository.clearChat()
-            _snackbarMessage.postValue(SingleEvent("Data cleared successfully"))
+            _snackbarMessage.postValue(SingleEvent(stringWrapper.getStringMessage(R.string.message_data_cleared)))
         }
     }
 }
